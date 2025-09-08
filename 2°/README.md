@@ -84,13 +84,20 @@ chmod +x backupRecursive.sh
    * Data e hora de conclusão do processo.
 
 
+<br>
+<br>
+
+---
+---
+
 # 🧠 Bill Gates disse que gosta de contratar preguiçosos, aplique um Cron Job no seu script!
+
+---
+---
 
 ## ⏰ Agendando com `cron`
 
 Um **Cron Job** consiste em automatizar a execução dos scripts usando o **cron**, o agendador de tarefas do Linux.
-
----
 
 ### 📌 Passos para configurar
 
