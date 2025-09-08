@@ -82,3 +82,75 @@ chmod +x backupRecursive.sh
 
    * Lista de arquivos/pastas copiados recentemente (≤3 dias).
    * Data e hora de conclusão do processo.
+
+
+# 🧠 Bill Gates disse que gosta de contratar preguiçosos, aplique um Cron Job no seu script!
+
+## ⏰ Agendando com `cron`
+
+Um **Cron Job** consiste em automatizar a execução dos scripts usando o **cron**, o agendador de tarefas do Linux.
+
+---
+
+### 📌 Passos para configurar
+
+1. **Dê permissão de execução ao script**:
+
+   ```bash
+   chmod +x /home/valcann/backupRecursive.sh
+   ```
+    Ou (a depender do script que deseja usar)
+
+   ```bash
+   chmod +x /home/valcann/backupFiles.sh
+   ```
+
+2. **Abra o editor do `cron`**:
+
+   ```bash
+   crontab -e
+   ```
+
+3. **Adicione a linha de agendamento** (exemplo: rodar todo dia após seu termino de trabalho com o script recursivo):
+
+   ```bash
+   0 2 * * * /home/valcann/backupRecursive.sh >> /home/valcann/cron_backup.log 2>&1
+   ```
+
+   🔎 **Detalhes**:
+
+   * `0` → minuto
+   * `2` → hora (**02:00 da manhã** Sim, eu sei que você é workaholic e trabalha até essa hora 🤤)
+   * `*` → todos os dias do mês
+   * `*` → todos os meses
+   * `*` → todos os dias da semana
+
+   O trecho `>> /home/valcann/cron_backup.log 2>&1` salva **toda a saída e erros** no log `cron_backup.log` (criado automaticamente se não existir).
+
+---
+
+### ⏳ Exemplos de agendamento concretos
+
+* **A cada hora**
+
+  ```bash
+  0 * * * * /home/valcann/backupFiles.sh >> /home/valcann/cron_backup.log 2>&1
+  ```
+
+* **Todo dia às 23h30**
+
+  ```bash
+  30 23 * * * /home/valcann/backupRecursive.sh >> /home/valcann/cron_backup.log 2>&1
+  ```
+
+* **Toda segunda-feira às 08h00**
+
+  ```bash
+  0 8 * * 1 /home/valcann/backupRecursive.sh >> /home/valcann/cron_backup.log 2>&1
+  ```
+
+* **A cada 10 minutos**
+
+  ```bash
+  */10 * * * * /home/valcann/backupFiles.sh >> /home/valcann/cron_backup.log 2>&1
+  ```
