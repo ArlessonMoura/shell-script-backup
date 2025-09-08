@@ -22,7 +22,7 @@ for file in "$SOURCE_DIR"/*; do
         created=$(stat -c %w "$file" 2>/dev/null)
 
         # Se não existir, usa a última alteração de metadados
-        if [ "$created" = "-" ]; then
+        if [ "$created" = "-" ] || [ -z "$created" ]; then
             created=$(stat -c %z "$file")
             label="Alterado"
         else
