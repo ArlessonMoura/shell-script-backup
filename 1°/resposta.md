@@ -1,3 +1,5 @@
+### Desafio: Banco de Dados (conceitual + índices básicos)
+
 # ✅ **Modelo Entidade-Relacionamento (MER)**
 
 🧠 Os principais desafios foram os trade-offs em torno de como e onde armazenar o valor `estado` (inclusive cogitei uma tabela `estado_atual`), e como isso impactaria a performance de consultas e a criação de índices. No entanto, optei por um modelo em que:
