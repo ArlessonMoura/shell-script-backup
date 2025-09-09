@@ -1,4 +1,4 @@
-### Desafio: Banco de Dados (conceitual + índices básicos)
+# 🚀 Desafio: Banco de Dados (conceitual + índices básicos)
 
 # ✅ **Modelo Entidade-Relacionamento (MER)**
 
